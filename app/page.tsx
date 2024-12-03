@@ -30,7 +30,7 @@ export default function Home() {
           height={250}
           className="rounded-lg"
         />
-        <div className='text-white ml-6'>
+        <div className='text-white ml-6 hidden sm:block'>
           <p className='text-6xl font-extrabold'>Certification PL-900</p>
           <p className='ml-1 text-xl w-[450px]'>Découvrez les compétences nécessaires pour réussir le PL-900</p>
         </div>
@@ -43,13 +43,15 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         className="flex flex-col items-center justify-center mt-10 max-w-2xl mx-auto p-8 text-center"
       >
-        <h1 className="text-4xl font-bold mb-6">
-          Relevez le défi du Quiz PL-900 et testez vos connaissances !
-        </h1>
-        <p className="text-xl text-muted-foreground mb-8">
-          Testez vos connaissances avec notre quiz interactif. Êtes-vous prêt à
-          commencer ?
-        </p>
+        <div className=''>
+          <h1 className="text-4xl font-bold mb-6">
+            Relevez le défi du Quiz PL-900 et testez vos connaissances !
+          </h1>
+          <p className="text-xl text-muted-foreground mb-8">
+            Testez vos connaissances avec notre quiz interactif. Êtes-vous prêt à
+            commencer ?
+          </p>
+        </div>
         <Button
           size="lg"
           onClick={() => router.push('/quiz')}
