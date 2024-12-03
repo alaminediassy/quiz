@@ -32,7 +32,7 @@ export default function Home() {
         />
         <div className='text-white ml-6 hidden sm:block'>
           <p className='text-6xl font-extrabold'>Certification PL-900</p>
-          <p className='ml-1 text-xl w-[450px]'>Découvrez les compétences nécessaires pour réussir le PL-900</p>
+          <p className='ml-1 text-xl w-[450px]'>Découvrez les compétences nécessaires pour réussir la certification PL-900</p>
         </div>
         
       </div>
