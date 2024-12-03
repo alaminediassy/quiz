@@ -56,12 +56,14 @@ export function QuestionCard({ question }: QuestionCardProps) {
   const handleNext = () => {
     let isCorrect = false;
     let correctAnswer = '';
-
+  
     if (question.type === 'dragdrop') {
       const allCorrect = question.pairs?.every(
-        pair => dragDropAnswers[pair.id] === pair.answer
-      );
+        pair => dragDropAnswers[pair.id] !== undefined && dragDropAnswers[pair.id] === pair.answer
+      ) ?? false;
+  
       isCorrect = allCorrect;
+  
       if (!isCorrect) {
         correctAnswer = question.pairs?.map(
           pair => `${pair.statement} → ${pair.answer}`
@@ -71,13 +73,14 @@ export function QuestionCard({ question }: QuestionCardProps) {
       const correctAnswers = question.options?.filter(opt => opt.isCorrect).map(opt => opt.id) || [];
       isCorrect = selectedAnswers.length === correctAnswers.length &&
         selectedAnswers.every(answer => correctAnswers.includes(answer));
+  
       if (!isCorrect) {
         correctAnswer = question.options?.filter(opt => opt.isCorrect)
           .map(opt => opt.text)
           .join(', ') || '';
       }
     }
-
+  
     toast({
       title: isCorrect ? "Correct! 🎉" : "Not quite right 😅",
       description: isCorrect 
@@ -86,12 +89,13 @@ export function QuestionCard({ question }: QuestionCardProps) {
       variant: isCorrect ? "default" : "destructive",
       duration: 3000,
     });
-
+  
     setTimeout(() => {
       nextQuestion();
       setHasAnswered(false);
     }, 1000);
   };
+  
 
   return (
     <motion.div

@@ -58,6 +58,10 @@ export default function Home() {
           Commencer le Quiz
         </Button>
       </motion.div>
+      {/* Footer */}
+      {/* <footer className="w-full py-4 bg-gray-800 text-center text-white text-sm">
+        &copy; 2024 Mamadou Lamine DIASSY - Tous droits réservés
+      </footer> */}
     </div>
   );
 }
